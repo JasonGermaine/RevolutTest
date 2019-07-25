@@ -24,7 +24,7 @@ Feature: Transferring money between accounts
       | alias         | customer_id | currency_code | balance |
       | account_one   | 1           | USD           | 20.00   |
       | account_two   | 2           | USD           | 0.00    |
-      | account_three | 3           | USD           | 10.00   |
+      | account_three | 12345       | USD           | 10.00   |
     When I submit transfers:
       | from_account_alias | to_account_alias | currency_code | amount |
       | account_one        | account_three    | USD           | 5.00   |
@@ -33,7 +33,7 @@ Feature: Transferring money between accounts
       | alias         | customer_id | currency_code | balance |
       | account_one   | 1           | USD           | 17.00   |
       | account_two   | 2           | USD           | 0.00    |
-      | account_three | 3           | USD           | 13.00   |
+      | account_three | 12345       | USD           | 13.00   |
 
   Scenario: Disallowing transferring between different currency accounts
     Given the following accounts exist:
