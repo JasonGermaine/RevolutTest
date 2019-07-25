@@ -39,7 +39,7 @@ public class TransferExecutionCallback implements HandleCallback<Transfer, Excep
     Account toAccount = lockingAccountProvider.apply(transferRequest.getToAccountId(), handle);
     Money newToAccountBalance = toAccount.getBalance().add(transferRequest.getAmount());
 
-    if (fromAccount.getCustomerId() == SLOW_CUSTOMER_ID || toAccount.getCustomerId() == SLOW_CUSTOMER_ID) {
+    if (toAccount.getCustomerId() == SLOW_CUSTOMER_ID) { // simulating slowness to promote transaction collision
       Thread.sleep(1000);
     }
     accountBalanceUpdater.update(fromAccount, newFromAccountBalance, handle);
