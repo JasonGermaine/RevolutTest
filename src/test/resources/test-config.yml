@@ -1,0 +1,14 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 4545
+  adminConnectors:
+    - type: http
+      port: 4546
+database:
+  driverClass: org.h2.Driver
+  url: jdbc:h2:mem:testdb
+  validationQuery: "SELECT 1"
+  validationQueryTimeout: 3s
+
+
